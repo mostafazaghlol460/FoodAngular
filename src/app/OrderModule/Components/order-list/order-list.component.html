@@ -1,39 +1,72 @@
-<!-- <p-table [value]="orders" [tableStyle]="{'min-width': '50rem'}">
+<div class="mt-3 d-flex justify-content-center">
+  <!-- <p-table [value]="orders" [resizableColumns]="true" styleClass="p-datatable-gridlines"
+    [tableStyle]="{'min-width': '50rem'}">
     <ng-template pTemplate="header">
-        <tr>
-            <th>Id</th>
-            <th>Date</th>
-            <th>Quantity</th>
-            <th>Total</th>
-            <th>User Name</th>
-        </tr>
+      <tr>
+        <th>Id</th>
+        <th>Date</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>User Name</th>
+        <th>Actions</th>
+      </tr>
     </ng-template>
     <ng-template pTemplate="body" let-order>
-        <tr>
-            <td>{{order.id}}</td>
-            <td>{{order.date}}</td>
-            <td>{{order.quantity}}</td>
-            <td>{{order.total}}</td>
-            <td>{{order.userName}}</td>
-        </tr>
+      <tr>
+        <td>{{order.id}}</td>
+        <td>{{order.date | date:"MM/dd/yyyy"}}</td>
+        <td>{{order.quantity}}</td>
+        <td>{{order.total}}</td>
+        <td>{{order.userName}}</td>
+        <td class="d-flex justify-content-evenly">
+          <a routerLink="" class="text-info"><i class="bi bi-eye"></i></a>
+          <a routerLink="" class="text-danger"><i class="bi bi-basket"></i></a>
+          <a routerLink="" class="text-primary"><i class="bi bi-pencil"></i></a>
+        </td>
+      </tr>
     </ng-template>
-</p-table> -->
+  </p-table> -->
+  <div class="w-75 table-responsive-md">
+    <div class="mb-1 d-flex justify-content-end">
+      <button class="border-0 btn btn-primary">
+        <i class="bi bi-plus-square-dotted"></i>
+      </button>
+    </div>
 
-<table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Age</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>25</td>
-      </tr>
-      <tr>
-        <td>Jane</td>
-        <td>30</td>
-      </tr>
-    </tbody>
-  </table>
+    <table class="table table-bordered text-nowrap">
+      <thead>
+        <tr class="text-center table-info text-light">
+          <th>Id</th>
+          <th>Date</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>User Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let order of orders">
+          <td>{{order.id}}</td>
+          <td>{{order.date | date:"MM/dd/yyyy"}}</td>
+          <td>{{order.quantity}}</td>
+          <td>{{order.total}}</td>
+          <td>{{order.userName}}</td>
+          <td class="d-flex justify-content-center">
+            <button title="update" (click)="Edit(order)" class="btn text-info border rounded-3">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            
+            <button title="Delete" (click)="Delete(order.id)" class="btn text-danger border mx-2 rounded-3">
+              <i class="bi bi-trash3"></i>
+            </button>
+            
+            <button title="update" routerLink="" class="btn text-info border  mx-2 rounded-3">
+              <i class="bi bi-eye"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

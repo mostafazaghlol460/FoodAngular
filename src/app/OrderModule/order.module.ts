@@ -5,16 +5,22 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import {AccordionModule} from 'primeng/accordion';
 import {TableModule} from 'primeng/table';
+import { OrderListComponent } from './Components/order-list/order-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    OrderListComponent,
+  ],
+
   imports: [
     CommonModule,
     OrderRoutingModule,
     BrowserModule,
     AccordionModule,
-    TableModule
+    TableModule,
+    HttpClientModule
 
   ]
 })

@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OrderListComponent } from './Components/order-list/order-list.component';
 
 const routes: Routes = [
-  { path: 'Orders', component: OrderListComponent }
+  // { path: 'Orders', component: OrderListComponent }
 ];
 
 @NgModule({

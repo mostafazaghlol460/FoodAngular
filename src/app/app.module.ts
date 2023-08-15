@@ -2,24 +2,34 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OrderListComponent } from './OrderModule/Components/order-list/order-list.component';
+import { OrderModule } from './OrderModule/order.module';
+
 
 // primeng
 import {AccordionModule} from 'primeng/accordion';
 import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
+import {MenuModule} from 'primeng/menu';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    OrderListComponent
+    
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AccordionModule,
-    TableModule  
+    TableModule,
+    OrderModule,
+    ButtonModule,
+    MenuModule
+
   ],
+
+
   providers: [],
   bootstrap: [AppComponent]
 })
