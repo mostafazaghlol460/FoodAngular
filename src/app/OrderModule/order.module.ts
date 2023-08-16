@@ -7,11 +7,20 @@ import {AccordionModule} from 'primeng/accordion';
 import {TableModule} from 'primeng/table';
 import { OrderListComponent } from './Components/order-list/order-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { OrderAddComponent } from './Components/order-add/order-add.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {ToastModule} from 'primeng/toast';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
     OrderListComponent,
+    OrderAddComponent,
   ],
 
   imports: [
@@ -20,8 +29,19 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AccordionModule,
     TableModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastModule,
+    MessagesModule,
+    MessageModule,
+    ConfirmDialogModule,
+    BrowserAnimationsModule
 
-  ]
+  ],
+  providers: [
+    ConfirmationService,
+    MessageService
+  ],
 })
 export class OrderModule { }

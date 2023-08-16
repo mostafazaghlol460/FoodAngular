@@ -19,4 +19,7 @@ export class OrderService {
     return this.master.getAll(this.base);
   }
 
+  addOrder(data: any) {
+    return this.master.add(this.base, data);
+  }
 }

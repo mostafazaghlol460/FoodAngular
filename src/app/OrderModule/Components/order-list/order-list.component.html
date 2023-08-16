@@ -1,4 +1,4 @@
-<div class="mt-3 d-flex justify-content-center">
+<div class="container mt-3 d-flex justify-content-center">
   <!-- <p-table [value]="orders" [resizableColumns]="true" styleClass="p-datatable-gridlines"
     [tableStyle]="{'min-width': '50rem'}">
     <ng-template pTemplate="header">
@@ -27,15 +27,20 @@
     </ng-template>
   </p-table> -->
   <div class="w-75 table-responsive-md">
-    <div class="mb-1 d-flex justify-content-end">
-      <button class="border-0 btn btn-primary">
-        <i class="bi bi-plus-square-dotted"></i>
-      </button>
+    <div class="mb-1 d-flex justify-content-between">
+      <div class="text-success fw-bolder fs-2">
+        Order List
+      </div>
+        <a class="d-flex align-self-center fw-bold border-0 btn btn-success" routerLink="/order/create">
+          Add Order
+          <i class="mx-2 bi bi-plus-square-dotted"></i>
+        </a>
     </div>
 
+
     <table class="table table-bordered text-nowrap">
-      <thead>
-        <tr class="text-center table-info text-light">
+      <thead >
+        <tr class="color text-center text-light">
           <th>Id</th>
           <th>Date</th>
           <th>Quantity</th>
@@ -55,11 +60,11 @@
             <button title="update" (click)="Edit(order)" class="btn text-info border rounded-3">
               <i class="bi bi-pencil-square"></i>
             </button>
-            
+
             <button title="Delete" (click)="Delete(order.id)" class="btn text-danger border mx-2 rounded-3">
               <i class="bi bi-trash3"></i>
             </button>
-            
+
             <button title="update" routerLink="" class="btn text-info border  mx-2 rounded-3">
               <i class="bi bi-eye"></i>
             </button>

@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="col-lg-6 col-md-8 col-sm-12 mx-auto" id="formScroll">
+        <h2 class="text-warning mt-4 text-center fw-bold pb-2">Add Order</h2>
+
+        <form [formGroup]="orderForm" >
+
+            <div class="mb-3">
+                <label for="date" class="form-label me-3">Order Date:</label>
+                <input type="text" class="form-control" id="date" placeholder="Enter your date" formControlName="date"
+                    [class.is-invalid]="date.invalid&&date.touched">
+                <small *ngIf="date.errors?.['required']&& (date.valid||date.touched)" class="text-danger">
+                    Date is required
+                </small>
+            </div>
+
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity:</label>
+                <input type="quantity" class="form-control" id="quantity" placeholder="Enter your quantity"
+                    formControlName="quantity" [class.is-invalid]="quantity.invalid&&quantity.touched">
+                <small *ngIf="quantity.errors?.['required']&& (quantity.valid||quantity.touched)" class="text-danger">
+                    Quantity is required
+                </small>
+            </div>
+
+            <div class="mb-3">
+                <label for="total" class="form-label">Total:</label>
+                <input type="text" class="form-control" id="total" placeholder="Enter your total orders"
+                    formControlName="total" [class.is-invalid]="total.invalid&&total.touched">
+                <small *ngIf="total.errors?.['required']&& (total.valid||total.touched)" class="text-danger">
+                    Total orders is required
+                </small>
+            </div>
+
+            <div class="mb-3">
+                <label for="userId" class="form-label">userId:</label>
+                <input type="text" class="form-control" id="userId" placeholder="Enter your user name"
+                    formControlName="userId" [class.is-invalid]="userId.invalid&&userId.touched">
+                <small *ngIf="userId.errors?.['required']&& (userId.valid||userId.touched)" class="text-danger">UserId
+                    is required</small>
+            </div>
+
+
+            <div class="text-center pt-1 mb-5">
+                <button (click)="Add()" class="btn btn-success border rounded-3 px-3"
+                    [disabled]="orderForm.invalid">
+                    Add
+                </button>
+                <a routerLink="/orders" class="btn btn-warning border rounded-3 mx-3 px-3">
+                    Back
+                </a>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<p-toast></p-toast>

@@ -17,5 +17,8 @@ export class MasterService {
   getAll(base: string): Observable<any> {
     return this.http.get<any>(this.url + base);
   }
-  
+
+  add(base: string, data: any): Observable<any> {
+    return this.http.post<any>(this.url + base, data);
+  }
 }
