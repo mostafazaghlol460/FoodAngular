@@ -21,4 +21,13 @@ export class MasterService {
   add(base: string, data: any): Observable<any> {
     return this.http.post<any>(this.url + base, data);
   }
+
+  getById(base: string, details: string, id: number): Observable<any> {
+    return this.http.get<any[]>(this.url + base + '/' + details + '/' + id);
+  }
+
+  Delete(base: string, id: any): Observable<any> {
+    return this.http.delete<any>(this.url + base + '/' + id);
+  }
+
 }

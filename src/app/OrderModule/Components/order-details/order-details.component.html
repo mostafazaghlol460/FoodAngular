@@ -1,0 +1,53 @@
+<div class="container">
+  <h2 class="text-primary mt-4 text-left fw-bold pb-2">Order Details</h2>
+  <!-- <form>
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="mb-3">Order Id: <span class="text-primary">{{order?.id}}</span> </div>
+
+        <div class="mb-3 border-bottom border-dark">Order Date: <span class="text-primary">{{order?.date}}</span> </div>
+
+        <div class="mb-3 border-bottom border-dark">Quantity: <span class="text-primary">{{order?.quantity}}</span>
+        </div>
+
+        <div class="mb-3 border-bottom border-dark">Total: <span class="text-primary">{{order?.total}}</span> </div>
+
+        <div class="mb-3 border-bottom border-dark">Username: <span class="text-primary">{{order?.userId}}</span></div>
+
+      </div>
+
+    </div>
+    <div class="d-flex justify-content-end pt-1 mb-5">
+      <button routerLink="/orders" class="btn btn-primary border rounded-3 px-4">Back</button>
+    </div>
+
+  </form> -->
+  <table class="table table-bordered text-nowrap">
+    <thead>
+      <tr class="color text-center text-light">
+        <th>Id</th>
+        <th>Date</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>User Name</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr>
+        <td>{{order.id}}</td>
+        <td>{{order.date | date:"MM/dd/yyyy"}}</td>
+        <td>{{order.quantity}}</td>
+        <td>{{order.total}}</td>
+        <td>{{order.userId}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- <button title="Delete" (click)="Delete(order.id)" class="btn text-danger border mx-2 rounded-3">
+    Delete<i class="bi bi-trash3"></i>
+  </button> -->
+  
+  <button title="update" routerLink="/orders" class="btn text-info border  mx-2 rounded-3">
+    Back
+  </button>
+</div>

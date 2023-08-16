@@ -16,11 +16,13 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { OrderDetailsComponent } from './Components/order-details/order-details.component';
 
 @NgModule({
   declarations: [
     OrderListComponent,
     OrderAddComponent,
+    OrderDetailsComponent,
   ],
 
   imports: [

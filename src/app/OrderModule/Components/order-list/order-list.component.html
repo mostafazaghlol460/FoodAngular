@@ -31,7 +31,7 @@
       <div class="text-success fw-bolder fs-2">
         Order List
       </div>
-        <a class="d-flex align-self-center fw-bold border-0 btn btn-success" routerLink="/order/create">
+        <a class="d-flex align-self-center fw-bold border-0 btn btn-success" routerLink="/orders/create">
           Add Order
           <i class="mx-2 bi bi-plus-square-dotted"></i>
         </a>
@@ -50,7 +50,7 @@
         </tr>
       </thead>
       <tbody class="text-center">
-        <tr *ngFor="let order of orders">
+        <tr *ngFor="let order of order">
           <td>{{order.id}}</td>
           <td>{{order.date | date:"MM/dd/yyyy"}}</td>
           <td>{{order.quantity}}</td>
@@ -65,7 +65,7 @@
               <i class="bi bi-trash3"></i>
             </button>
 
-            <button title="update" routerLink="" class="btn text-info border  mx-2 rounded-3">
+            <button title="update" routerLink="/orders/details/{{order.id}}" class="btn text-info border  mx-2 rounded-3">
               <i class="bi bi-eye"></i>
             </button>
           </td>
@@ -75,3 +75,6 @@
   </div>
 
 </div>
+
+<p-confirmDialog></p-confirmDialog>
+<p-toast></p-toast>

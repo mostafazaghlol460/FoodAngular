@@ -6,7 +6,7 @@
 
             <div class="mb-3">
                 <label for="date" class="form-label me-3">Order Date:</label>
-                <input type="text" class="form-control" id="date" placeholder="Enter your date" formControlName="date"
+                <input type="date" class="form-control" id="date" placeholder="Enter your date" formControlName="date"
                     [class.is-invalid]="date.invalid&&date.touched">
                 <small *ngIf="date.errors?.['required']&& (date.valid||date.touched)" class="text-danger">
                     Date is required

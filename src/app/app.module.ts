@@ -13,6 +13,8 @@ import {ButtonModule} from 'primeng/button';
 import {MenuModule} from 'primeng/menu';
 import {MessageModule} from 'primeng/message';
 import {MessagesModule} from 'primeng/messages';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+
 import { ConfirmationService,MessageService} from 'primeng/api';
 import {ToastModule} from 'primeng/toast';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -36,7 +38,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     MessageModule,
     MessagesModule,
     ToastModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ConfirmDialogModule
   ],
 
   providers: [

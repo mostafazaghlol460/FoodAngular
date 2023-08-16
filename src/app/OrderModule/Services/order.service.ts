@@ -7,13 +7,9 @@ import { MasterService } from 'src/app/Services/master.service';
 export class OrderService {
 
   base: string = 'Orders';
-  // user: string = '';
+  details: string = 'Details';
 
   constructor(private master: MasterService) { }
-
-  // getUsers(){
-  //   return this.master.getAll()
-  // }
 
   getOrders() {
     return this.master.getAll(this.base);
@@ -22,4 +18,13 @@ export class OrderService {
   addOrder(data: any) {
     return this.master.add(this.base, data);
   }
+
+  getOrderById(id: any) {
+    return this.master.getById(this.base, this.details, id);
+  }
+
+  deleteOrder(id: number) {
+    return this.master.Delete(this.base, id);
+  }
+
 }
