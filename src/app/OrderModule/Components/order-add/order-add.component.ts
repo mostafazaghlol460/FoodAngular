@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Order } from '../../Model/order';
+import { Order, User } from '../../Model/order';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { OrderService } from '../../Services/order.service';
 import { MessageService } from 'primeng/api';
@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class OrderAddComponent {
   orders: Order[] = [];
+  user: User[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -20,7 +21,9 @@ export class OrderAddComponent {
     private messageService: MessageService,
     private router: Router
   ) {
+    this.service.getAllUser().subscribe(result => this.user = result);
   }
+
 
   orderForm = this.fb.group({
     date: ['', [Validators.required]],
@@ -49,7 +52,7 @@ export class OrderAddComponent {
       result => {
         this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: 'Record added' });
         setTimeout(() => {
-          
+
           this.router.navigate(['/orders']);
         }, 1000);
         this.orderForm.reset();

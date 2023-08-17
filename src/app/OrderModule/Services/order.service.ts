@@ -7,9 +7,15 @@ import { MasterService } from 'src/app/Services/master.service';
 export class OrderService {
 
   base: string = 'Orders';
-  details: string = 'Details';
+  orderDetails: string = 'Details';
+  user: string = 'User/GetAllUser';
+ 
 
   constructor(private master: MasterService) { }
+
+  getAllUser() {
+    return this.master.getAll(this.user);
+  }
 
   getOrders() {
     return this.master.getAll(this.base);
@@ -20,7 +26,7 @@ export class OrderService {
   }
 
   getOrderById(id: any) {
-    return this.master.getById(this.base, this.details, id);
+    return this.master.getById(this.base, this.orderDetails, id);
   }
 
   deleteOrder(id: number) {

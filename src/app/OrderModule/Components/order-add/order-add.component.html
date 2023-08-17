@@ -32,12 +32,26 @@
             </div>
 
             <div class="mb-3">
+                <select class="form-select w-100" id="userId" formControlName="userId">
+                    <option value="" selected disabled> ---Select User--- </option>
+                    <option [value]="user.id" *ngFor="let user of user">
+                        {{user.name}}
+                    </option>
+                </select>
+                <small
+                    *ngIf="userId.errors?.['required']&& (userId.valid||userId.touched)"
+                    class="text-danger">
+                    Username is required
+                </small>
+            </div>
+
+            <!-- <div class="mb-3">
                 <label for="userId" class="form-label">userId:</label>
                 <input type="text" class="form-control" id="userId" placeholder="Enter your user name"
                     formControlName="userId" [class.is-invalid]="userId.invalid&&userId.touched">
                 <small *ngIf="userId.errors?.['required']&& (userId.valid||userId.touched)" class="text-danger">UserId
                     is required</small>
-            </div>
+            </div> -->
 
 
             <div class="text-center pt-1 mb-5">

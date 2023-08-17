@@ -6,3 +6,11 @@ export interface Order {
     userName: string;
 }
 
+export interface User {
+    id: string;
+    name: string;
+    email: string;
+    phoneNumber: string;
+
+}
+

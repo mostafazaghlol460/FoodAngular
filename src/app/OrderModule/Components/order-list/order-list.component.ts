@@ -15,8 +15,7 @@ export class OrderListComponent implements OnInit {
 
   constructor(
     private service: OrderService,
-    private confirmationService: ConfirmationService,
-    private messageService: MessageService,
+
     private router: Router
   ) { }
   getOrders() {
@@ -32,23 +31,5 @@ export class OrderListComponent implements OnInit {
 
   }
   
-  Delete(id: number) {
-    console.log(id);
-    this.confirmationService.confirm({
-      message: 'Are you sure to delete this order !?',
-      accept: () => {
-        this.service.addOrder(id).subscribe(
-          next => {
-            this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: 'Order deleted' });
-            // setTimeout(() => {
-            //   this.router.navigate(['orders']);
-            // }, 500);
-          },
-          error => {
-            this.messageService.add({ severity: 'error', summary: 'Error!!!' });
-          }
-          )
-      }
-    });
-  }
+
 }
