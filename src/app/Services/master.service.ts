@@ -30,4 +30,7 @@ export class MasterService {
     return this.http.delete<any>(this.url + base + '/' + id);
   }
 
+  update(base: string, update: string, id: any): Observable<any> {
+    return this.http.put<any>(this.url + base + '/' + update + '/', id);
+  }
 }

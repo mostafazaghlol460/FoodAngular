@@ -28,7 +28,7 @@ export class OrderListComponent implements OnInit {
   }
 
   Edit(order: Order) {
-
+    
   }
   
 

@@ -9,7 +9,8 @@ export class OrderService {
   base: string = 'Orders';
   orderDetails: string = 'Details';
   user: string = 'User/GetAllUser';
- 
+  orderUpdate: string = 'Update';
+
 
   constructor(private master: MasterService) { }
 
@@ -33,4 +34,7 @@ export class OrderService {
     return this.master.Delete(this.base, id);
   }
 
+  updateOrder(data: any) {
+    return this.master.update(this.base, this.orderUpdate, data);
+  }
 }
