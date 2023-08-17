@@ -1,6 +1,6 @@
 <div class="container">
     <div class="col-lg-6 col-md-8 col-sm-12 mx-auto" id="formScroll">
-        <h2 class="text-warning mt-4 text-center fw-bold pb-2">Add Order</h2>
+        <h2 class="text-warning fs-1 mt-4 text-center fw-bold pb-2">Add Order</h2>
 
         <form [formGroup]="orderForm" >
 
@@ -45,23 +45,14 @@
                 </small>
             </div>
 
-            <!-- <div class="mb-3">
-                <label for="userId" class="form-label">userId:</label>
-                <input type="text" class="form-control" id="userId" placeholder="Enter your user name"
-                    formControlName="userId" [class.is-invalid]="userId.invalid&&userId.touched">
-                <small *ngIf="userId.errors?.['required']&& (userId.valid||userId.touched)" class="text-danger">UserId
-                    is required</small>
-            </div> -->
-
-
             <div class="text-center pt-1 mb-5">
-                <button (click)="Add()" class="btn btn-success border rounded-3 px-3"
-                    [disabled]="orderForm.invalid">
-                    Add
-                </button>
-                <a routerLink="/orders" class="btn btn-warning border rounded-3 mx-3 px-3">
-                    Back
+                <a title="Back" routerLink="/orders" class="btn fw-bold btn-warning text-light border rounded-3 mx-3 px-3">
+                    <i class="bi bi-arrow-left-short"></i> Back
                 </a>
+                <button title="Add" (click)="Add()" class="btn btn-success fw-bold text-light btn-successborder rounded-3 px-3"
+                    [disabled]="orderForm.invalid">
+                    Add <i class="bi bi-plus-square-dotted"></i> 
+                </button>
             </div>
         </form>
 

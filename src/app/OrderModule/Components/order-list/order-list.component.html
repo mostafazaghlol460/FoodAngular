@@ -31,7 +31,7 @@
       <div class="text-success fw-bolder fs-2">
         Order List
       </div>
-        <a class="d-flex align-self-center fw-bold border-0 btn btn-success" routerLink="/orders/create">
+        <a title="Add" class="d-flex align-self-center fw-bold border-0 btn btn-success" routerLink="/orders/create">
           Add Order
           <i class="mx-2 bi bi-plus-square-dotted"></i>
         </a>
@@ -57,11 +57,11 @@
           <td>{{order.total}}</td>
           <td>{{order.userName}}</td>
           <td class="d-flex justify-content-center">
-            <button title="update" (click)="Edit(order)" class="btn text-info border rounded-3">
+            <button title="Update" (click)="Edit(order)" class="btn text-info border rounded-3">
               <i class="bi bi-pencil-square"></i>
             </button>
 
-            <button title="update" routerLink="/orders/details/{{order.id}}" class="btn text-info border  mx-2 rounded-3">
+            <button title="Details" routerLink="/orders/details/{{order.id}}" class="btn text-info border  mx-2 rounded-3">
               <i class="bi bi-eye"></i>
             </button>
           </td>
