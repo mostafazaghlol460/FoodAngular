@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="col-lg-6 col-md-8 col-sm-12 mx-auto" id="formScroll">
+        <h2 class="text-warning fs-1 mt-4 text-center fw-bold pb-2">Add Product</h2>
+
+        <form [formGroup]="productForm" >
+
+            <div class="mb-3">
+                <label for="name" class="form-label me-3">Product Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter product name" formControlName="name"
+                    [class.is-invalid]="name.invalid&&name.touched">
+                <small *ngIf="name.errors?.['required']&& (name.valid||name.touched)" class="text-danger">
+                    Name is required
+                </small>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description:</label>
+                <input type="text" class="form-control" id="description" placeholder="Enter product Description"
+                    formControlName="description" [class.is-invalid]="description.invalid&&description.touched">
+                <small *ngIf="description.errors?.['required']&& (description.valid||description.touched)" class="text-danger">
+                    Description is required
+                </small>
+            </div>
+
+            <div class="mb-3">
+                <label for="price" class="form-label">Price:</label>
+                <input type="text" class="form-control" id="price" placeholder="Enter product price"
+                    formControlName="price" [class.is-invalid]="price.invalid&&price.touched">
+                <small *ngIf="price.errors?.['required']&& (price.valid||price.touched)" class="text-danger">
+                    price is required
+                </small>
+            </div>
+
+            <div class="mb-3">
+                <label for="categoryId" class="form-label">Category name:</label>
+                <select class="form-select w-auto" id="categoryId" formControlName="categoryId">
+                    <option value="" selected disabled>--select--</option>
+                    <option [value]="category.id" *ngFor="let category of categories">{{category.name}}</option>
+                </select>
+                <small *ngIf="categoryId.errors?.['required']&& (categoryId.valid||categoryId.touched)"
+                    class="text-danger">
+                    Category name is required
+                </small>
+            </div>
+            <!-- <div class="mb-3">
+                <select class="form-select w-100" id="userId" formControlName="userId">
+                    <option value="" selected disabled> ---Select User--- </option>
+                    <option [value]="user.id" *ngFor="let user of user">
+                        {{user.name}}
+                    </option>
+                </select>
+                <small
+                    *ngIf="userId.errors?.['required']&& (userId.valid||userId.touched)"
+                    class="text-danger">
+                    Username is required
+                </small>
+            </div> -->
+
+            <div class="text-center pt-1 mb-5">
+                <a title="Back" routerLink="/products" class="btn fw-bold btn-warning text-light border rounded-3 mx-3 px-3">
+                    <i class="bi bi-arrow-left-short"></i> Back
+                </a>
+                <button title="Add" (click)="Add()" class="btn btn-success fw-bold text-light btn-successborder rounded-3 px-3"
+                    [disabled]="productForm.invalid">
+                    Add <i class="bi bi-plus-square-dotted"></i> 
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<p-toast></p-toast>
