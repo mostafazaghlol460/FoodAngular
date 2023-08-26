@@ -4,13 +4,12 @@ export interface Order {
     quantity: number;
     total: number;
     userName: string;
+    userId: string;
+    user: User[];
 }
 
 export interface User {
     id: string;
     name: string;
-    email: string;
-    phoneNumber: string;
-
 }
 

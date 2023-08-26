@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { MasterService } from 'src/app/Services/master.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +15,25 @@ export class OrderService {
   user: string = 'User/GetAllUser';
   orderUpdate: string = 'Update';
 
+  userById:string='User';
+  url: string = '';
 
-  constructor(private master: MasterService) { }
+
+  constructor(
+    private master: MasterService, 
+    private http:HttpClient, 
+    ) { 
+          this.url = environment.UrlBase;
+    }
 
   getAllUser() {
     return this.master.getAll(this.user);
   }
+
+  getUserById(id: any): Observable<any> {
+    return this.http.get<any>(`${this.url}${this.userById}/${id}`);
+  }
+
 
   getOrders() {
     return this.master.getAll(this.base);
@@ -34,7 +51,7 @@ export class OrderService {
     return this.master.Delete(this.base, id);
   }
 
-  updateOrder(id:any , data: any) {
-    return this.master.update(this.base, this.orderUpdate,id, data);
+  updateOrder(id: any, data: any) {
+    return this.master.update(this.base, this.orderUpdate, id, data);
   }
 }

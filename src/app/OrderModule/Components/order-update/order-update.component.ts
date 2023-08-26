@@ -13,6 +13,7 @@ import { DatePipe } from '@angular/common';
 })
 export class OrderUpdateComponent {
   orders: Order[] = [];
+  user: User[] = [];
   id: number = 0;
 
   selectDate: any = this.datePipe.transform(new Date(), "yyyy-mm-dd");
@@ -24,8 +25,8 @@ export class OrderUpdateComponent {
     private router: Router,
     private route: ActivatedRoute,
     private datePipe: DatePipe
-
   ) {
+    this.service.getAllUser().subscribe(result=>this.user=result);
     this.id = Number(this.route.snapshot.paramMap.get('id'));
 
     if (this.id) {
@@ -35,23 +36,22 @@ export class OrderUpdateComponent {
 
   getData() {
     this.service.getOrderById(this.id).subscribe((orders: Order) => {
-      console.log(orders);
+      const formattedDate = this.datePipe.transform(orders.date, 'yyyy-MM-dd');
       this.orderForm.patchValue({
-        date: `${orders.date}`,
+        date: `${formattedDate}`,
         quantity: `${orders.quantity}`,
         total: `${orders.total}`,
+        userId: `${orders.userId}`
       })
-
-
     });
     console.log(this.orders);
   }
-
 
   orderForm = this.fb.group({
     date: ['', [Validators.required]],
     quantity: ['', [Validators.required]],
     total: ['', [Validators.required]],
+    userId: ['', [Validators.required]]
   })
 
   onDateChanged(value: string): void {
@@ -70,6 +70,9 @@ export class OrderUpdateComponent {
   get total() {
     return this.orderForm.controls.total as FormControl;
   }
+  get userId() {
+    return this.orderForm.controls.userId as FormControl;
+  }
 
   Update() {
     console.log({ ...this.orderForm.value, 'id': this.id });
@@ -78,9 +81,10 @@ export class OrderUpdateComponent {
       date: this.date.value,
       quantity: this.quantity.value,
       total: this.total.value,
+      userId: this.userId.value
     }
     console.log(data);
-    this.service.updateOrder(this.id ,data).subscribe(
+    this.service.updateOrder(this.id, data).subscribe(
       result => {
         this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: 'Record updated' });
         setTimeout(() => {
