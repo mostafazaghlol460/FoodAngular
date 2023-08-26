@@ -11,7 +11,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class OrderDetailsComponent implements OnInit {
   order: any;
-  user: User[] = [];
+  user: any;
 
   constructor(
     private service: OrderService,
@@ -23,6 +23,15 @@ export class OrderDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
+
+    this.service.getUserById(id).subscribe(
+      (Response:any) => { 
+        this.user = Response 
+        if(this.order.userId==Response){
+          return this.order.userName;
+        }
+      });
+
     this.service.getOrderById(id).subscribe(
       response => {
         this.order = response;
@@ -45,7 +54,7 @@ export class OrderDetailsComponent implements OnInit {
           error => {
             this.messageService.add({ severity: 'error', summary: 'Error!!!' });
           }
-          )
+        )
       }
     });
   }
