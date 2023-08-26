@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class CategoryService {
   base: string = 'category';
-  baseData:string="Detail";
-  CategoryUpdate:string="update"
+  baseData: string = "Detail";
+  CategoryUpdate: string = "update"
 
   constructor(private master: MasterService) { }
   getCategories() {
@@ -18,12 +18,12 @@ export class CategoryService {
   addcategory(data: any) {
     return this.master.add(this.base, data);
   }
-  getCategoryById(id:number) {
-    return this.master.getById(this.base,this.baseData , id);
+  getCategoryById(id: number) {
+    return this.master.getById(this.base, this.baseData, id);
 
   }
-  updateCategory(id:number,data: any) {
-    this.master.update(this.base, this.CategoryUpdate, data);
+  updateCategory(id: any, data: any) {
+    return this.master.update(this.base, this.CategoryUpdate, id, data);
   }
 }
 

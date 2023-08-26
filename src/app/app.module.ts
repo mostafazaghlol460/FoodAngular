@@ -23,6 +23,7 @@ import { ProductAddComponent } from './ProductModule/Components/product-add/prod
 import { ProductUpdateComponent } from './ProductModule/Components/product-update/product-update.component';
 import { ProductDetailsComponent } from './ProductModule/Components/product-details/product-details.component';
 import { CategoryModule } from './CategoryModule/category.module';
+import { DatePipe } from '@angular/common';
 
 
 

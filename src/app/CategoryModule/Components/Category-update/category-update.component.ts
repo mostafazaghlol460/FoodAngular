@@ -55,15 +55,15 @@ Update() {
     name: this.name.value,
    
   }
-  // this.service.updateCategory(this.id , data).subscribe(
-  //   (result:any) => {
-  //     this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: 'Record updated' });
-  //     setTimeout(() => {
-  //       this.Router.navigate(['/category']);
-  //     }, 1000);
-  //     this.Categoryform.reset();
-  //   }
-  // );
+  this.service.updateCategory(this.id , data).subscribe(
+    (result:any) => {
+      this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: 'Record updated' });
+      setTimeout(() => {
+        this.Router.navigate(['/categories']);
+      }, 1000);
+      this.Categoryform.reset();
+    }
+  );
 
 
 
