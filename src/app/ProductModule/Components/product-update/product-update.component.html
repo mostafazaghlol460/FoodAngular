@@ -1,1 +1,66 @@
-<p>product-update works!</p>
+<div class="container">
+    <div class="col-lg-6 col-md-8 col-sm-12 mx-auto" id="formScroll">
+        <h2 class="text-warning fs-1 mt-4 text-center fw-bold pb-2">Update Product</h2>
+
+        <form [formGroup]="productForm">
+
+            <div class="mb-3">
+                <label for="date" class="form-label me-3">Order Date:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your date" formControlName="name"
+                    [class.is-invalid]="name.invalid&&name.touched"  >
+                <small *ngIf="name.errors?.['required']&& (name.valid||name.touched)" class="text-danger">
+                    Date is required
+                </small>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">description:</label>
+                <input type="text" class="form-control" id="description" placeholder="Enter your description"
+                    formControlName="description" [class.is-invalid]="description.invalid&&description.touched">
+                <small *ngIf="description.errors?.['required']&& (description.valid||description.touched)" class="text-danger">
+                    description is required
+                </small>
+            </div>
+
+            <div class="mb-3">
+                <label for="price" class="form-label">price:</label>
+                <input type="number" class="form-control" id="price" placeholder="Enter your price orders"
+                    formControlName="price" [class.is-invalid]="price.invalid&&price.touched">
+                <small *ngIf="price.errors?.['required']&& (price.valid||price.touched)" class="text-danger">
+                    price orders is required
+                </small>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">image:</label>
+                <input type="number" class="form-control" id="image" placeholder="Enter your image orders"
+                    formControlName="image" [class.is-invalid]="image.invalid&&image.touched">
+                <small *ngIf="image.errors?.['required']&& (image.valid||image.touched)" class="text-danger">
+                    image  is required
+                </small>
+            </div>
+            <div class="mb-3">
+                <label for="categoryId" class="form-label">Category name:</label>
+                <select class="form-select w-auto" id="categoryId" formControlName="categoryId">
+                    <option value="" selected disabled>--select--</option>
+                    <option [value]="category.id" *ngFor="let category of categories">{{category.name}}</option>
+                </select>
+
+            </div>
+
+            <div class="text-center pt-1 mb-5">
+                <a title="Back" routerLink="/products"
+                    class="btn fw-bold btn-warning text-light border rounded-3 mx-3 px-3">
+                    <i class="bi bi-x-lg"></i> Cancel
+                </a>
+                <button title="Add" (click)="Update()"
+                    class="btn btn-success fw-bold text-light btn-successborder rounded-3 px-3"
+                    [disabled]="productForm.invalid">
+                    Update <i class="bi bi-pencil"></i>
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<p-toast></p-toast>
