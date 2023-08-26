@@ -30,6 +30,14 @@
                     price is required
                 </small>
             </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">image:</label>
+                <input type="text" class="form-control" id="price" placeholder="Enter product image"
+                    formControlName="image" [class.is-invalid]="price.invalid&&price.touched">
+                <small *ngIf="image.errors?.['required']&& (image.valid||image.touched)" class="text-danger">
+                    image is required
+                </small>
+            </div>
 
             <div class="mb-3">
                 <label for="categoryId" class="form-label">Category name:</label>

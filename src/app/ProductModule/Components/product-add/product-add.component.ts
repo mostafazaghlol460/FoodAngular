@@ -32,6 +32,8 @@ export class ProductAddComponent implements OnInit {
     name: ['', [Validators.required]],
     description: ['', [Validators.required]],
     price: ['', [Validators.required]],
+    image: ['', [Validators.required]],
+
     categoryId: ['', [Validators.required]]
   })
 
@@ -47,6 +49,9 @@ export class ProductAddComponent implements OnInit {
   get categoryId () {
     return this.productForm.controls.categoryId as FormControl;
   }
+  get image () {
+    return this.productForm.controls.image as FormControl;
+  }
 
 
   Add() {
@@ -55,7 +60,6 @@ export class ProductAddComponent implements OnInit {
       result => {
         this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: 'Record added' });
         setTimeout(() => {
-
           this.router.navigate(['/products']);
         }, 1000);
         this.productForm.reset();
