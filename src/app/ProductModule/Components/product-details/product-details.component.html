@@ -1,1 +1,55 @@
-<p>product-details works!</p>
+<div class="container">
+    <h2 class="text-warning mt-4 text-center fs-1 fw-bold pb-3">Order Details</h2>
+    <!-- <table class="table table-bordered text-nowrap">
+      <thead>
+        <tr class="color text-center text-light">
+          <th>Id</th>
+          <th>Date</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>User Name</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr>
+          <td>{{order.id}}</td>
+          <td>{{order.date | date:"MM/dd/yyyy"}}</td>
+          <td>{{order.quantity}}</td>
+          <td>{{order.total}}</td>
+          <td>{{order.user.name}}</td>
+        </tr>
+      </tbody>
+    </table> -->
+  <div class="d-flex justify-content-center">
+    <div class="card border-success mb-3 text-left" style="width: 35%;">
+      <div class="card-header fw-bold fs-2 text-success text-center">Success Order</div>
+      <div class="card-body text-dark">
+        <div class="card-text fs-5 fw-bold">
+          <div>
+            Order Id: <span class=" text-success ">{{productData?.id}}</span>
+          </div>
+          <div>Name: <span class=" text-success">{{productData?.name }}</span></div>
+          <div>Description:  <span class=" text-success"> {{productData?.description}}</span></div>
+          <div>Price:  <span class=" text-success">{{productData?.price}}</span> </div>
+          <div>image:  <span class=" text-success">{{productData?.image}}</span> </div>
+          <div>Category Name:  <span class=" text-success">{{Category?.name}}</span> </div>
+
+        </div>
+      </div>
+  
+      <div class="d-flex justify-content-end  ">
+        <button title="Delete" (click)="Delete(productData.id)" class="btn btn-danger  fw-bold border mx-2 rounded-3">
+          Delete <i class="bi bi-trash3"></i>
+        </button>
+  
+        <button title="Back" routerLink="/products" class="text-light  fw-bold btn btn-warning border  mx-2 rounded-3">
+          <i class="bi bi-arrow-left-short"></i> Back
+        </button>
+      </div>
+  
+    </div>
+  
+  </div>
+  
+    <p-confirmDialog></p-confirmDialog>
+    <p-toast></p-toast>
