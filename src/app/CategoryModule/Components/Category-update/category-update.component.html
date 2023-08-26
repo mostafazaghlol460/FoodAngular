@@ -1,0 +1,37 @@
+<p>category-update works!</p>
+<div class="container">
+    <div class="col-lg-6 col-md-8 col-sm-12 mx-auto" id="formScroll">
+        <h2 class="text-warning fs-1 mt-4 text-center fw-bold pb-2">Update category</h2>
+
+        <form [formGroup]="Categoryform">
+
+            <div class="mb-3">
+                <label for="category" class="form-label me-3">category name:</label>
+                <input type="text" class="form-control" id="category" placeholder="Enter your category" formControlName="name"
+                    [class.is-invalid]="name.invalid&&name.touched"  >
+                <small *ngIf="name.errors?.['required']&& (name.valid||name.touched)" class="text-danger">
+                    category is required
+                </small>
+            </div>
+
+            
+
+        
+
+            <div class="text-center pt-1 mb-5">
+                <a title="Back" routerLink="/categories"
+                    class="btn fw-bold btn-warning text-light border rounded-3 mx-3 px-3">
+                    <i class="bi bi-x-lg"></i> Cancel
+                </a>
+                <button title="Add" (click)="Update()"
+                    class="btn btn-success fw-bold text-light btn-successborder rounded-3 px-3"
+                    [disabled]="Categoryform.invalid">
+                    Update <i class="bi bi-pencil"></i>
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<p-toast></p-toast>

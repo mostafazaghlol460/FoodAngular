@@ -1,0 +1,47 @@
+<div class="container mt-3 d-flex justify-content-center">
+  
+    <div class="w-75 table-responsive-md">
+      <div class="mb-1 d-flex justify-content-between">
+        <div class="text-success fw-bolder fs-2">
+          categories List
+        </div>
+        <a title="Add" class="d-flex align-self-center fw-bold border-0 btn btn-success" routerLink="/categories/create">
+          Add category
+          <i class="mx-2 bi bi-plus-square-dotted"></i>
+        </a>
+      </div>
+  
+  
+      <table class="table table-bordered text-nowrap">
+        <thead>
+          <tr class="color text-center text-light">
+            <th>Id</th>
+            <th>name</th>
+          
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr *ngFor="let category of category">
+            <td>{{category.id}}</td>
+            <td>{{category.name}}</td>
+         >
+            <td class="d-flex justify-content-center">
+              <button routerLink="/Categories/update/{{category.id}}" title="Update" 
+                class="btn text-info border rounded-3">
+                <i class="bi bi-pencil-square"></i>
+              </button>
+  
+              <!-- <button title="Details" routerLink="/Categories/details/{{category.id}}"
+                class="btn text-info border  mx-2 rounded-3">
+                <i class="bi bi-eye"></i>
+              </button> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </div>
+  
+  <p-confirmDialog></p-confirmDialog>
+  <p-toast></p-toast>
