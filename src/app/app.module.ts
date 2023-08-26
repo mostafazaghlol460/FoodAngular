@@ -22,6 +22,7 @@ import { ProductListComponent } from './ProductModule/Components/product-list/pr
 import { ProductAddComponent } from './ProductModule/Components/product-add/product-add.component';
 import { ProductUpdateComponent } from './ProductModule/Components/product-update/product-update.component';
 import { ProductDetailsComponent } from './ProductModule/Components/product-details/product-details.component';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -47,12 +48,14 @@ import { ProductDetailsComponent } from './ProductModule/Components/product-deta
     MessagesModule,
     ToastModule,
     BrowserAnimationsModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+
   ],
 
   providers: [
     ConfirmationService,
-    MessageService
+    MessageService,
+    DatePipe
   ],
   bootstrap: [
     AppComponent,

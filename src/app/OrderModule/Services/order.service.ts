@@ -34,7 +34,7 @@ export class OrderService {
     return this.master.Delete(this.base, id);
   }
 
-  updateOrder(data: any) {
-    return this.master.update(this.base, this.orderUpdate, data);
+  updateOrder(id:any , data: any) {
+    return this.master.update(this.base, this.orderUpdate,id, data);
   }
 }

@@ -35,7 +35,7 @@ export class ProductService {
     return this.master.Delete(this.base, id);
   }
 
-  updateProduct(data: any) {
-    return this.master.update(this.base, this.productUpdate, data);
+  updateProduct(id:any,data: any) {
+    return this.master.update(this.base, this.productUpdate,id, data);
   }
 }
