@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class OrderListComponent implements OnInit {
 
   order: Order[] = [];
+  id: number = 0;
+
 
   constructor(
     private service: OrderService,
@@ -28,7 +30,7 @@ export class OrderListComponent implements OnInit {
   }
 
   Edit(order: Order) {
-    
+   
   }
   
 

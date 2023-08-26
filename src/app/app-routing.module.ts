@@ -7,9 +7,9 @@ import { OrderUpdateComponent } from './OrderModule/Components/order-update/orde
 
 const routes: Routes = [
   { path: 'orders', component: OrderListComponent },
-  {path:'orders/create',component:OrderAddComponent},
-  {path:'orders/details/:id',component:OrderDetailsComponent},
-  {path:'orders/update/:id',component:OrderUpdateComponent}
+  { path: 'orders/create', component: OrderAddComponent },
+  { path: 'orders/details/:id', component: OrderDetailsComponent },
+  { path: 'orders/update/:id', component: OrderUpdateComponent }
 ];
 
 @NgModule({

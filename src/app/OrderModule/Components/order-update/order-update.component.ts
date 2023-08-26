@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { OrderService } from '../../Services/order.service';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-order-update',
@@ -12,19 +13,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class OrderUpdateComponent {
   orders: Order[] = [];
-  user: User[] = [];
   id: number = 0;
 
+  selectDate: any = this.datePipe.transform(new Date(), "yyyy-mm-dd");
 
   constructor(
     private fb: FormBuilder,
     private service: OrderService,
     private messageService: MessageService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private datePipe: DatePipe
 
   ) {
-    this.service.getAllUser().subscribe(result => this.user = result);
     this.id = Number(this.route.snapshot.paramMap.get('id'));
 
     if (this.id) {
@@ -38,7 +39,6 @@ export class OrderUpdateComponent {
         date: `${orders.date}`,
         quantity: `${orders.quantity}`,
         total: `${orders.total}`,
-        userId: `${orders.userName}`
       })
     });
   }
@@ -48,8 +48,14 @@ export class OrderUpdateComponent {
     date: ['', [Validators.required]],
     quantity: ['', [Validators.required]],
     total: ['', [Validators.required]],
-    userId: ['', [Validators.required]]
   })
+
+  onDateChanged(value: string): void {
+    this.orderForm.get('date')?.setValue(value);
+
+    // Access the updated value using the safe navigation operator
+    console.log(this.orderForm.get('date')?.value);
+  }
 
   get date() {
     return this.orderForm.controls.date as FormControl;
@@ -60,22 +66,21 @@ export class OrderUpdateComponent {
   get total() {
     return this.orderForm.controls.total as FormControl;
   }
-  get userId() {
-    return this.orderForm.controls.userId as FormControl;
-  }
 
   Update() {
     console.log({ ...this.orderForm.value, 'id': this.id });
     const newOrder: any = {
-
-      id:this.id,
-      date:this.date.value,
-      quantity:this.quantity.value,
-      total:this.total.value,
-      userId:this.userId.value,
+      id: this.id,
+      date: this.date.value,
+      quantity: this.quantity.value,
+      total: this.total.value,
     }
     this.service.updateOrder(newOrder).subscribe(
-      result=>{
+      result => {
+        this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: 'Record updated' });
+        setTimeout(() => {
+          this.router.navigate(['/orders']);
+        }, 1000);
         this.orderForm.reset();
       }
     );

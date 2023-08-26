@@ -18,6 +18,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { OrderDetailsComponent } from './Components/order-details/order-details.component';
 import { OrderUpdateComponent } from './Components/order-update/order-update.component';
+import {CalendarModule} from 'primeng/calendar';
+import { DatePipe } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -40,12 +43,14 @@ import { OrderUpdateComponent } from './Components/order-update/order-update.com
     MessagesModule,
     MessageModule,
     ConfirmDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CalendarModule
 
   ],
   providers: [
     ConfirmationService,
-    MessageService
+    MessageService,
+    DatePipe
   ],
 })
 export class OrderModule { }

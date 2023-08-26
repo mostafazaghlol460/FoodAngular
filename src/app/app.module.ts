@@ -18,11 +18,16 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import { ConfirmationService,MessageService} from 'primeng/api';
 import {ToastModule} from 'primeng/toast';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {CalendarModule} from 'primeng/calendar';
+import { DatePipe } from '@angular/common';
+import { LeftSidebarComponent } from './SharedModule/Components/left-sidebar/left-sidebar.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    LeftSidebarComponent,
   ],
 
   imports: [
@@ -39,12 +44,14 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     MessagesModule,
     ToastModule,
     BrowserAnimationsModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    CalendarModule
   ],
 
   providers: [
     ConfirmationService,
-    MessageService
+    MessageService,
+    DatePipe
   ],
   bootstrap: [
     AppComponent,

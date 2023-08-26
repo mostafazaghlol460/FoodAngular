@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class OrderAddComponent {
   orders: Order[] = [];
-  user: User[] = [];
+  // user: User[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -21,7 +21,7 @@ export class OrderAddComponent {
     private messageService: MessageService,
     private router: Router
   ) {
-    this.service.getAllUser().subscribe(result => this.user = result);
+    // this.service.getAllUser().subscribe(result => this.user = result);
   }
 
 
@@ -29,7 +29,6 @@ export class OrderAddComponent {
     date: ['', [Validators.required]],
     quantity: ['', [Validators.required]],
     total: ['', [Validators.required]],
-    userId: ['', [Validators.required]]
   })
 
   get date() {
@@ -41,9 +40,7 @@ export class OrderAddComponent {
   get total() {
     return this.orderForm.controls.total as FormControl;
   }
-  get userId() {
-    return this.orderForm.controls.userId as FormControl;
-  }
+
 
 
   Add() {

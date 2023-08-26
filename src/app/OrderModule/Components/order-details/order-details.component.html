@@ -26,12 +26,12 @@
     <div class="card-body text-dark">
       <div class="card-text fs-5 fw-bold">
         <div>
-          Order Id: <span class=" text-success ">{{order.id}}</span>
+          Order Id: <span class=" text-success ">{{order?.id}}</span>
         </div>
-        <div>Date: <span class=" text-success">{{order.date | date:"MM/dd/yyyy"}}</span></div>
-        <div>Quantity:  <span class=" text-success"> {{order.quantity}}</span></div>
-        <div>Total:  <span class=" text-success">{{order.total}}</span> </div>
-        <div>Username:  <span class=" text-success">{{order.user.name}}</span> </div>
+        <div>Date: <span class=" text-success">{{order?.date | date:"MM/dd/yyyy"}}</span></div>
+        <div>Quantity:  <span class=" text-success"> {{order?.quantity}}</span></div>
+        <div>Total:  <span class=" text-success">{{order?.total}}</span> </div>
+        <div>Username:  <span class=" text-success">{{order?.user.name}}</span> </div>
       </div>
     </div>
 

@@ -1,13 +1,13 @@
 <div class="container">
     <div class="col-lg-6 col-md-8 col-sm-12 mx-auto" id="formScroll">
-        <h2 class="text-warning fs-1 mt-4 text-center fw-bold pb-2">Add Order</h2>
+        <h2 class="text-warning fs-1 mt-4 text-center fw-bold pb-2">Update Order</h2>
 
-        <form [formGroup]="orderForm" >
+        <form [formGroup]="orderForm">
 
             <div class="mb-3">
                 <label for="date" class="form-label me-3">Order Date:</label>
                 <input type="date" class="form-control" id="date" placeholder="Enter your date" formControlName="date"
-                    [class.is-invalid]="date.invalid&&date.touched">
+                    [class.is-invalid]="date.invalid&&date.touched" [(ngModel)]="selectDate" >
                 <small *ngIf="date.errors?.['required']&& (date.valid||date.touched)" class="text-danger">
                     Date is required
                 </small>
@@ -31,25 +31,13 @@
                 </small>
             </div>
 
-            <div class="mb-3">
-                <select class="form-select w-100" id="userId" formControlName="userId">
-                    <option value="" selected disabled> ---Select User--- </option>
-                    <option [value]="user.id" *ngFor="let user of user">
-                        {{user.name}}
-                    </option>
-                </select>
-                <small
-                    *ngIf="userId.errors?.['required']&& (userId.valid||userId.touched)"
-                    class="text-danger">
-                    Username is required
-                </small>
-            </div>
-
             <div class="text-center pt-1 mb-5">
-                <a title="Back" routerLink="/orders" class="btn fw-bold btn-warning text-light border rounded-3 mx-3 px-3">
+                <a title="Back" routerLink="/orders"
+                    class="btn fw-bold btn-warning text-light border rounded-3 mx-3 px-3">
                     <i class="bi bi-x-lg"></i> Cancel
                 </a>
-                <button title="Add" (click)="Update()" class="btn btn-success fw-bold text-light btn-successborder rounded-3 px-3"
+                <button title="Add" (click)="Update()"
+                    class="btn btn-success fw-bold text-light btn-successborder rounded-3 px-3"
                     [disabled]="orderForm.invalid">
                     Update <i class="bi bi-pencil"></i>
                 </button>
