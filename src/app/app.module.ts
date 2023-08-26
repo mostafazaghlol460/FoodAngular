@@ -47,14 +47,12 @@ import { ProductDetailsComponent } from './ProductModule/Components/product-deta
     MessagesModule,
     ToastModule,
     BrowserAnimationsModule,
-    ConfirmDialogModule,
-    CalendarModule
+    ConfirmDialogModule
   ],
 
   providers: [
     ConfirmationService,
-    MessageService,
-    DatePipe
+    MessageService
   ],
   bootstrap: [
     AppComponent,
