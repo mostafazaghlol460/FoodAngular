@@ -1,7 +1,8 @@
+import { User } from './../../Model/order';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OrderService } from './../../Services/order.service';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../Model/order';
+
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
@@ -24,19 +25,22 @@ export class OrderDetailsComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
 
-    this.service.getUserById(id).subscribe(
-      (Response:any) => { 
-        this.user = Response 
-        if(this.order.userId==Response){
-          return this.order.userName;
-        }
-      });
+
 
     this.service.getOrderById(id).subscribe(
       response => {
         this.order = response;
+        this.service.getUserById(response.userId).subscribe(
+          (Responsed:any) => { 
+            this.user = Responsed
+        console.log(Responsed);
+
+           
+          });
         console.log(response);
+
       });
+
   }
 
   Delete(id: number) {

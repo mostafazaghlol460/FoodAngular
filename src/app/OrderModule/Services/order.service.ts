@@ -17,6 +17,7 @@ export class OrderService {
 
   userById:string='User';
   url: string = '';
+  empty:string='';
 
 
   constructor(
@@ -31,7 +32,7 @@ export class OrderService {
   }
 
   getUserById(id: any): Observable<any> {
-    return this.http.get<any>(`${this.url}${this.userById}/${id}`);
+    return this.http.get<any[]>(this.url + this.userById + '/' + id);
   }
 
 
