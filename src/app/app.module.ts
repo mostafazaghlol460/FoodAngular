@@ -60,7 +60,8 @@ import { CategoryModule } from './CategoryModule/category.module';
 
   providers: [
     ConfirmationService,
-    MessageService
+    MessageService,
+    DatePipe
   ],
   bootstrap: [
     AppComponent,

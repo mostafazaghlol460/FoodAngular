@@ -32,5 +32,7 @@ export class MasterService {
 
   update(base: string, update: string, data:any): Observable<any> {
     return this.http.put<any>(this.url + base + '/' + update ,data);
+  update(base: string, update: string, id: any,data:any): Observable<any> {
+    return this.http.put<any>(this.url + base + '/' + update + '/' + `${id}`,data);
   }
 }

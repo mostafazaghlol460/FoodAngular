@@ -41,7 +41,10 @@ export class OrderUpdateComponent {
         quantity: `${orders.quantity}`,
         total: `${orders.total}`,
       })
+
+
     });
+    console.log(this.orders);
   }
 
 
@@ -70,13 +73,14 @@ export class OrderUpdateComponent {
 
   Update() {
     console.log({ ...this.orderForm.value, 'id': this.id });
-    const newOrder: any = {
+    const data: any = {
       id: this.id,
       date: this.date.value,
       quantity: this.quantity.value,
       total: this.total.value,
     }
-    this.service.updateOrder(newOrder).subscribe(
+    console.log(data);
+    this.service.updateOrder(this.id ,data).subscribe(
       result => {
         this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: 'Record updated' });
         setTimeout(() => {

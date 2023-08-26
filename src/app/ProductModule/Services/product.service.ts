@@ -18,7 +18,9 @@ export class ProductService {
   getCategories() {
     return this.master.getAll(this.baseCategory);
   }
-
+  getCategoriesByID(id:any) {
+    return this.master.getById(this.baseCategory,this.productDetails,id);
+  }
   getProducts() {
     return this.master.getAll(this.base);
   }
@@ -35,7 +37,7 @@ export class ProductService {
     return this.master.Delete(this.base, id);
   }
 
-  updateProduct(data: any) {
-    return this.master.update(this.base, this.productUpdate, data);
+  updateProduct(id:any,data: any) {
+    return this.master.update(this.base, this.productUpdate,id, data);
   }
 }
