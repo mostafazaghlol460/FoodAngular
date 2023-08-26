@@ -5,6 +5,7 @@ import { OrderService } from '../../Services/order.service';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-order-update',
@@ -24,6 +25,8 @@ export class OrderUpdateComponent {
     private router: Router,
     private route: ActivatedRoute,
     private datePipe: DatePipe
+    private route: ActivatedRoute,
+    private datePipe: DatePipe
 
   ) {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
@@ -35,6 +38,8 @@ export class OrderUpdateComponent {
 
   getData() {
     this.service.getOrderById(this.id).subscribe((orders: Order) => {
+      console.log(orders);
+      this.orders.date =this.datePipe.transform(this.orders.date, 'dd-MM-yy')
       this.orderForm.patchValue({
         date: `${orders.date}`,
         quantity: `${orders.quantity}`,

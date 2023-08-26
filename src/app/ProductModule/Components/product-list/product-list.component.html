@@ -1,0 +1,51 @@
+
+<div class="container mt-3 d-flex justify-content-center">
+   
+    <div class="w-75 table-responsive-md">
+      <div class="mb-1 d-flex justify-content-between">
+        <div class="text-success fw-bolder fs-2">
+          Product List
+        </div>
+        <a title="Add" class="d-flex align-self-center fw-bold border-0 btn btn-success" routerLink="/products/create">
+          Add Product
+          <i class="mx-2 bi bi-plus-square-dotted"></i>
+        </a>
+      </div>
+  
+  
+      <table class="table table-bordered text-nowrap">
+        <thead>
+          <tr class="color text-center text-light">
+            <th>Id</th>
+            <th>Name</th>
+            <th>DEscription</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr *ngFor="let Product of products">
+            <td>{{Product.id}}</td>
+            <td>{{Product.name}}</td>
+            <td>{{Product.description}}</td>
+            <td>{{Product.price}}</td>
+            <!-- <td>{{Product.userName}}</td> -->
+            <td class="d-flex justify-content-center">
+              <button routerLink="/products/update/{{Product.id}}" title="Update" (click)="Edit(Product)"
+                class="btn text-info border rounded-3">
+                <i class="bi bi-pencil-square"></i>
+              </button>
+  
+              <button title="Details" routerLink="/products/details/{{Product.id}}"
+                class="btn text-info border  mx-2 rounded-3">
+                <i class="bi bi-eye"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </div>
+  
+  <p-confirmDialog></p-confirmDialog>
+  <p-toast></p-toast>
